@@ -25,7 +25,7 @@ class Subscription
     private ?int $pdf_limit = null;
 
     #[ORM\Column]
-    private ?int $price = null;
+    private ?float $price = null;
 
     #[ORM\Column(length: 255)]
     private ?string $media = null;
@@ -82,12 +82,12 @@ class Subscription
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPrice(): ?float
     {
         return $this->price;
     }
 
-    public function setPrice(int $price): static
+    public function setPrice(float $price): static
     {
         $this->price = $price;
 

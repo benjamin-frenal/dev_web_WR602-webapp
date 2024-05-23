@@ -32,26 +32,26 @@ class User
     private ?string $role = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $subscription_end_at = null;
-
-    #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
-    #[ORM\ManyToOne(inversedBy: 'users')]
-    private ?Subscription $subscription = null;
-
     /**
      * @var Collection<int, Pdf>
      */
-    #[ORM\OneToMany(targetEntity: Pdf::class, mappedBy: 'userRelation')]
-    private Collection $pdf;
+    #[ORM\OneToMany(targetEntity: Pdf::class, mappedBy: 'owner')]
+    private Collection $pdfs;
+
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?Subscription $subscription = null;
+
+    #[ORM\Column]
+    private ?\DateTimeImmutable $subscription_end_at = null;
 
     public function __construct()
     {
-        $this->pdf = new ArrayCollection();
+        $this->pdfs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -119,18 +119,6 @@ class User
         return $this;
     }
 
-    public function getSubscriptionEndAt(): ?\DateTimeImmutable
-    {
-        return $this->subscription_end_at;
-    }
-
-    public function setSubscriptionEndAt(\DateTimeImmutable $subscription_end_at): static
-    {
-        $this->subscription_end_at = $subscription_end_at;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->created_at;
@@ -155,6 +143,36 @@ class User
         return $this;
     }
 
+    /**
+     * @return Collection<int, Pdf>
+     */
+    public function getPdfs(): Collection
+    {
+        return $this->pdfs;
+    }
+
+    public function addPdf(Pdf $pdf): static
+    {
+        if (!$this->pdfs->contains($pdf)) {
+            $this->pdfs->add($pdf);
+            $pdf->setOwner($this);
+        }
+
+        return $this;
+    }
+
+    public function removePdf(Pdf $pdf): static
+    {
+        if ($this->pdfs->removeElement($pdf)) {
+            // set the owning side to null (unless already changed)
+            if ($pdf->getOwner() === $this) {
+                $pdf->setOwner(null);
+            }
+        }
+
+        return $this;
+    }
+
     public function getSubscription(): ?Subscription
     {
         return $this->subscription;
@@ -167,32 +185,14 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection<int, Pdf>
-     */
-    public function getPdf(): Collection
+    public function getSubscriptionEndAt(): ?\DateTimeImmutable
     {
-        return $this->pdf;
+        return $this->subscription_end_at;
     }
 
-    public function addPdf(Pdf $pdf): static
+    public function setSubscriptionEndAt(\DateTimeImmutable $subscription_end_at): static
     {
-        if (!$this->pdf->contains($pdf)) {
-            $this->pdf->add($pdf);
-            $pdf->setUserRelation($this);
-        }
-
-        return $this;
-    }
-
-    public function removePdf(Pdf $pdf): static
-    {
-        if ($this->pdf->removeElement($pdf)) {
-            // set the owning side to null (unless already changed)
-            if ($pdf->getUserRelation() === $this) {
-                $pdf->setUserRelation(null);
-            }
-        }
+        $this->subscription_end_at = $subscription_end_at;
 
         return $this;
     }

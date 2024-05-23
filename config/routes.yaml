@@ -3,3 +3,9 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+
+# config/routes.yaml
+html_to_pdf_convert:
+    path: /convert/html-to-pdf
+    controller: 'App\Controller\GotenbergController::convertHtmlToPdf'
+    methods: ['POST']
