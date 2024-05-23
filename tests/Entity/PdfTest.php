@@ -1,5 +1,5 @@
 <?php
-// tests/Entity/PdfTest.php
+
 namespace App\Tests\Entity;
 
 use App\Entity\Pdf;
@@ -9,15 +9,20 @@ class PdfTest extends TestCase
 {
     public function testGetterAndSetter()
     {
+        // Création d'une instance de l'entité User
         $pdf = new Pdf();
 
-        $title = 'PDF Title';
+        // Définition de données de test
+        $title = 'Test';
         $createdAt = new \DateTimeImmutable();
 
+        // Utilisation des setters
         $pdf->setTitle($title);
         $pdf->setCreatedAt($createdAt);
 
+        // Vérification des getters
         $this->assertEquals($title, $pdf->getTitle());
         $this->assertEquals($createdAt, $pdf->getCreatedAt());
+
     }
 }
