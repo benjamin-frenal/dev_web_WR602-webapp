@@ -1,0 +1,44 @@
+@use "../global/mixins" as *;
+
+.header{
+  margin: 40px 0 80px;
+  .container{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+  &--logo{
+    font-weight: 700;
+    font-size: 24px;
+  }
+  nav{
+    ul{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      column-gap: 60px;
+      li{
+        list-style: none;
+        a{
+          font-weight: 400;
+          transition: var(--smalltransition);
+          @include hover{
+            color: var(--violet);
+          }
+        }
+      }
+    }
+  }
+  &--boutons{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    column-gap: 30px;
+  }
+  &--account{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    column-gap: 30px;
+  }
+}

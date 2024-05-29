@@ -1,0 +1,87 @@
+@use "../global/mixins" as *;
+
+.generate_pdf{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1{
+    width: 100%;
+    max-width: 940px;
+  }
+  .form-url{
+    margin-top: 80px;
+    width: 945px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 60% 20% 20%;
+    > div{
+    border: 1px solid var(--violet);
+  }
+    input{
+      border: 0;
+      width: 100%;
+      padding-left: 28px;
+      font-size: 16px;
+      height: 65px;
+      font-weight: 400;
+      color: var(--noir);
+      border-radius: 0;
+      background: var(--rose);
+      &::placeholder{
+        color: var(--gris);
+      }
+      &:focus, &:focus-visible{
+        outline: none;
+        background: rgb(232 211 255);
+      }
+    }
+    button{
+      border: 0;
+      width: 100%;
+      border-radius: 0;
+      background: var(--violet);
+      height: 65px;
+      color: var(--blanc);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--smalltransition);
+      @include hover{
+        background: none;
+        color: var(--violet);
+      }
+    }
+    :nth-child(2), :nth-child(3){
+      border-left: none;
+    }
+  }
+  .form-code{
+    margin-top: 0;
+    grid-template-columns: 1fr;
+    textarea{
+      padding-left: 28px;
+      padding-top: 28px;
+      font-family: var(--font-family);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--noir);
+      border: 1px solid var(--violet);
+      border-radius: 0;
+      background: var(--rose);
+      &::placeholder{
+        color: var(--gris);
+      }
+      &:focus, &:focus-visible{
+        outline: none;
+        background: rgb(232 211 255);
+      }
+    }
+    :nth-child(2), :nth-child(3), :nth-child(4){
+      border-left: 1px solid var(--violet);
+      border-top: none;
+    }
+  }
+  .change{
+    margin: 50px 0;
+  }
+}

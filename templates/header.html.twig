@@ -1,8 +1,36 @@
-<nav>
-    <ul>
-        <li><a href="{{ path('app_home') }}">Accueil</a></li>
-        <li><a href="{{ path('app_generate_pdf') }}">Générer PDF</a></li>
-        <li><a href="{{ path('app_history') }}">Historique</a></li>
-        <li><a href="{{ path('app_subscription') }}">Abonnement</a></li>
-    </ul>
-</nav>
+<header class="header">
+    <div class="container">
+        <div class="header--logo">INTO<span>PDF</span></div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="{{ path('app_home') }}" class="{{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}">Accueil</a>
+                </li>
+                <li>
+                    <a href="{{ path('app_generate_pdf') }}" target="_self"  class="{{ app.request.attributes.get('_route') == 'app_generate_pdf' ? 'active' : '' }}">Générer PDF</a>
+                </li>
+                <li>
+                    <a href="{{ path('app_history') }}" class="{{ app.request.attributes.get('_route') == 'app_history' ? 'active' : '' }}">Historique</a>
+                </li>
+                <li>
+                    <a href="{{ path('app_subscription') }}" class="{{ app.request.attributes.get('_route') == 'app_subscription' ? 'active' : '' }}">Abonnement</a>
+                </li>
+            </ul>
+        </nav>
+        {% if app.user %}
+            <div class="header--account">
+                {# app.user.userIdentifier #}
+                <a class="btn btn-primary" href="{{ path('app_logout') }}">Se déconnecter</a>
+            </div>
+        {% else %}
+            <div class="header--boutons">
+                <a href="{{ path('app_login') }}" class="btn btn-secondary">Se connecter</a>
+                <a href="{{ path('app_register') }}" class="btn btn-primary">S'inscrire</a>
+            </div>
+        {% endif %}
+    </div>
+</header>
+<div class="bubbles">
+    <div class="bubble-1"></div>
+    <div class="bubble-2"></div>
+</div>

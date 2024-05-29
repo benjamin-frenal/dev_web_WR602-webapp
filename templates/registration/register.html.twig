@@ -7,19 +7,36 @@
         <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
     {% endfor %}
 
-    <h1>Register</h1>
+    <h1>Inscription à INTO<span>PDF</span></h1>
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.email) }}
-    {{ form_row(registrationForm.plainPassword, {
-        label: 'Password'
+    {{ form_row(registrationForm.email, {
+        label: 'Email',
+        attr: {
+            placeholder: 'johndoe@email.com'
+        }
     }) }}
-    {{ form_row(registrationForm.firstName) }}
-    {{ form_row(registrationForm.lastName) }}
-    {{ form_row(registrationForm.agreeTerms) }}
+    {{ form_row(registrationForm.plainPassword, {
+        label: 'Mot de Passe'
+    }) }}
+    {{ form_row(registrationForm.firstName, {
+        label: 'Prénom',
+        attr: {
+            placeholder: 'John'
+        }
+    }) }}
+    {{ form_row(registrationForm.lastName, {
+        label: 'Nom',
+        attr: {
+            placeholder: 'Doe'
+        }
+    }) }}
+    {{ form_row(registrationForm.agreeTerms, {
+        label: 'J\'ai lu et j\'accepte les conditions générales d\'utilisation'
+    }) }}
 
-    <button type="submit" class="btn">Register</button>
+    <button type="submit" class="btn btn-primary">S'inscrire</button>
     {{ form_end(registrationForm) }}
 {% endblock %}

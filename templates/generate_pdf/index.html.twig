@@ -1,28 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Generate PDF{% endblock %}
+{% block title %}INTOPDF - Générer un PDF{% endblock %}
 
 {% block body %}
-    <style>
-        main{
-            margin-top: 50px;
-        }
-    </style>
 
-    <h1>Generate PDF</h1>
-    {{ form_start(form) }}
-    <div class="my-custom-class-for-errors">
+    <div class="generate_pdf">
+        <h1><span>Convertissez</span> vos pages en <span>PDF</span> grâce à notre outil simple en ligne</h1>
+        <div class="chapo">Nous avons converti <span id="counter">40 000</span> <span>URL</span> en <span>PDF</span> pour une taille totale de <span id="countermo">345,78</span> <span>Mo</span></div>
+
+        <!--<div class="change">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 34" fill="none">
+                <path d="M6.89737 33.2813C7.52684 33.9107 8.5447 33.9107 9.16746 33.2813C9.79023 32.6518 9.79693 31.6339 9.16746 31.0112L5.48443 27.3281L28.3929 27.3214C29.2835 27.3214 30.0001 26.6049 30.0001 25.7143C30.0001 24.8237 29.2835 24.1072 28.3929 24.1072H5.48443L9.16746 20.4241C9.79693 19.7947 9.79693 18.7768 9.16746 18.154C8.538 17.5313 7.52014 17.5246 6.89737 18.154L0.468802 24.5759C-0.160662 25.2054 -0.160662 26.2232 0.468802 26.846L6.89737 33.2746V33.2813ZM29.5313 9.70983C30.1608 9.08037 30.1608 8.06251 29.5313 7.43974L23.1027 1.00448C22.4733 0.375013 21.4554 0.375013 20.8326 1.00448C20.2099 1.63394 20.2032 2.6518 20.8326 3.27457L24.5157 6.9576L1.6072 6.9643C0.71657 6.9643 5.2297e-05 7.68082 5.2297e-05 8.57144C5.2297e-05 9.46207 0.71657 10.1786 1.6072 10.1786H24.5157L20.8326 13.8616C20.2032 14.4911 20.2032 15.5089 20.8326 16.1317C21.4621 16.7545 22.48 16.7612 23.1027 16.1317L29.5313 9.70314V9.70983Z" fill="#7000FF"/>
+            </svg>
+        </div>
+
+        <form class="form-url form-code" action="">
+            <input type="text" name="pdfName" id="pdfName" placeholder="Nom du fichier">
+            <textarea name="code" id="code" placeholder="Saisissez le texte que vous souhaitez convertir en PDF..." cols="30" rows="10"></textarea>
+            <button type="submit">Convertir en PDF</button>
+        </form>-->
+
+
+        {{ form_start(form, {'attr': {'class': 'form-url', 'action': ''}}) }}
+
         {{ form_errors(form) }}
+
+        {{ form_end(form) }}
     </div>
-    <div class="row">
-        <div class="col">
-            {{ form_row(form.pdfName) }}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            {{ form_row(form.url) }}
-        </div>
-    </div>
-    {{ form_end(form) }}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function animateValue(obj, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            const counter = document.getElementById("counter");
+            animateValue(counter, 0, 43926, 2000);
+
+            const countermo = document.getElementById("countermo");
+            animateValue(countermo, 0, 382, 2000);
+        });
+    </script>
 {% endblock %}

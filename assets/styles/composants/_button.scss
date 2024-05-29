@@ -1,0 +1,24 @@
+@use "../global/mixins" as *;
+
+.btn {
+  font-weight: 500;
+  transition: var(--smalltransition);
+  cursor: pointer;
+
+  &-primary {
+    color: var(--violet);
+    border-radius: 20px;
+    padding: 8px 20px;
+    border: 1px solid var(--violet);
+    @include hover {
+      background-color: var(--violet);
+      color: var(--rose);
+    }
+  }
+
+  &-secondary {
+    @include hover {
+      color: var(--violet);
+    }
+  }
+}
