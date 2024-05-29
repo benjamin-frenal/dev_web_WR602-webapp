@@ -1,0 +1,18 @@
+//--------- GLOBAL ------------------------------
+@use 'global/variables';
+@use 'global/mixins';
+@use 'global/reset';
+
+//--------- INCLUDES ----------------------------
+@use 'includes/header';
+@use 'includes/footer';
+
+//--------- COMPOSANTS --------------------------
+@use 'composants/button';
+@use 'composants/bubbles';
+
+//--------- PAGES -------------------------------
+@use 'pages/home';
+@use 'pages/generate';
+@use 'pages/historique';
+@use 'pages/view-pdf';

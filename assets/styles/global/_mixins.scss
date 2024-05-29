@@ -1,0 +1,13 @@
+@mixin tablet {
+  @media (min-width: 991px) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @include tablet {
+    &:hover, &:focus, &:focus-visible, &.active{
+      @content;
+    }
+  }
+}

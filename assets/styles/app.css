@@ -1,3 +1,313 @@
-body {
-    background-color: skyblue;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+:root {
+  --rose: #F1E4FF;
+  --blanc: #FFF;
+  --violet: #7000FF;
+  --noir: #000000;
+  --gris: #565656;
+  --font-family: "Poppins", sans-serif;
+  --smalltransition: 0.25s;
+  --transition: 0.5s;
 }
+
+html {
+  background: var(--rose);
+}
+
+html, body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--noir);
+  font-size: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(100vw - 24px, 1360px);
+  margin: 0 auto;
+}
+.container--flex {
+  display: flex;
+  justify-content: space-between;
+  gap: 70px;
+}
+
+span {
+  color: var(--violet);
+}
+
+.table-responsive {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-spacing: 0;
+}
+
+.header {
+  margin: 40px 0 80px;
+}
+.header .container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+.header--logo {
+  font-weight: 700;
+  font-size: 24px;
+}
+.header nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  column-gap: 60px;
+}
+.header nav ul li {
+  list-style: none;
+}
+.header nav ul li a {
+  font-weight: 400;
+  transition: var(--smalltransition);
+}
+@media (min-width: 991px) {
+  .header nav ul li a:hover, .header nav ul li a:focus, .header nav ul li a:focus-visible, .header nav ul li a.active {
+    color: var(--violet);
+  }
+}
+.header--boutons {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  column-gap: 30px;
+}
+.header--account {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  column-gap: 30px;
+}
+
+.btn {
+  font-weight: 500;
+  transition: var(--smalltransition);
+  cursor: pointer;
+}
+.btn-primary {
+  color: var(--violet);
+  border-radius: 20px;
+  padding: 8px 20px;
+  border: 1px solid var(--violet);
+}
+@media (min-width: 991px) {
+  .btn-primary:hover, .btn-primary:focus, .btn-primary:focus-visible, .btn-primary.active {
+    background-color: var(--violet);
+    color: var(--rose);
+  }
+}
+@media (min-width: 991px) {
+  .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:focus-visible, .btn-secondary.active {
+    color: var(--violet);
+  }
+}
+
+.bubbles {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+.bubbles .bubble-1 {
+  position: absolute;
+  left: 80px;
+  bottom: -80px;
+  width: 580px;
+  height: 580px;
+  border-radius: 580px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(112, 0, 255, 0.1) 0%, rgba(112, 0, 255, 0.1) 100%);
+}
+.bubbles .bubble-2 {
+  position: absolute;
+  right: 160px;
+  top: 40px;
+  width: 320px;
+  height: 320px;
+  border-radius: 320px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(112, 0, 255, 0.1) 0%, rgba(112, 0, 255, 0.1) 100%);
+}
+
+h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.chapo {
+  margin-top: 30px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.generate_pdf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.generate_pdf h1 {
+  width: 100%;
+  max-width: 940px;
+}
+.generate_pdf .form-url {
+  margin-top: 80px;
+  width: 945px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+}
+.generate_pdf .form-url > div {
+  border: 1px solid var(--violet);
+}
+.generate_pdf .form-url input {
+  border: 0;
+  width: 100%;
+  padding-left: 28px;
+  font-size: 16px;
+  height: 65px;
+  font-weight: 400;
+  color: var(--noir);
+  border-radius: 0;
+  background: var(--rose);
+}
+.generate_pdf .form-url input::placeholder {
+  color: var(--gris);
+}
+.generate_pdf .form-url input:focus, .generate_pdf .form-url input:focus-visible {
+  outline: none;
+  background: rgb(232, 211, 255);
+}
+.generate_pdf .form-url button {
+  border: 0;
+  width: 100%;
+  border-radius: 0;
+  background: var(--violet);
+  height: 65px;
+  color: var(--blanc);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--smalltransition);
+}
+@media (min-width: 991px) {
+  .generate_pdf .form-url button:hover, .generate_pdf .form-url button:focus, .generate_pdf .form-url button:focus-visible, .generate_pdf .form-url button.active {
+    background: none;
+    color: var(--violet);
+  }
+}
+.generate_pdf .form-url :nth-child(2), .generate_pdf .form-url :nth-child(3) {
+  border-left: none;
+}
+.generate_pdf .form-code {
+  margin-top: 0;
+  grid-template-columns: 1fr;
+}
+.generate_pdf .form-code textarea {
+  padding-left: 28px;
+  padding-top: 28px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--noir);
+  border: 1px solid var(--violet);
+  border-radius: 0;
+  background: var(--rose);
+}
+.generate_pdf .form-code textarea::placeholder {
+  color: var(--gris);
+}
+.generate_pdf .form-code textarea:focus, .generate_pdf .form-code textarea:focus-visible {
+  outline: none;
+  background: rgb(232, 211, 255);
+}
+.generate_pdf .form-code :nth-child(2), .generate_pdf .form-code :nth-child(3), .generate_pdf .form-code :nth-child(4) {
+  border-left: 1px solid var(--violet);
+  border-top: none;
+}
+.generate_pdf .change {
+  margin: 50px 0;
+}
+
+.historique table {
+  margin-top: 40px;
+  width: 100%;
+  background: var(--rose);
+  border: 1px solid var(--violet);
+  border-collapse: collapse;
+}
+.historique table thead th {
+  background: var(--violet);
+  color: var(--blanc);
+  padding: 10px 20px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--violet);
+}
+.historique table thead th:first-child, .historique table thead th:nth-child(2) {
+  border-right: 1px solid var(--blanc);
+}
+.historique table tbody tr {
+  border-top: 1px solid var(--violet);
+}
+.historique table tbody tr td {
+  text-align: center;
+  padding: 10px 20px;
+}
+.historique table tbody tr td:nth-child(2) {
+  color: var(--violet);
+  text-decoration: underline;
+}
+.historique table tbody tr td:nth-child(2), .historique table tbody tr td:nth-child(3) {
+  text-wrap: nowrap;
+}
+.historique table tbody tr > :first-child, .historique table tbody tr > :nth-child(2) {
+  border-right: 1px solid var(--violet);
+}
+
+.view-pdf .container {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: center;
+  column-gap: 80px;
+  row-gap: 40px;
+}
+.view-pdf embed {
+  width: 500px;
+  height: 500px;
+  margin-top: -40px;
+  aspect-ratio: 9/16;
+}
+.view-pdf_infos {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.view-pdf_infos h1 {
+  text-align: left;
+}
+.view-pdf_infos p {
+  margin: 0;
+}
+.view-pdf_infos a {
+  width: fit-content;
+}
+
+/*# sourceMappingURL=app.css.map */
