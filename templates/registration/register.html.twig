@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}INTOPDF - Inscription{% endblock %}
 
 {% block body %}
     {% for flash_error in app.flashes('verify_email_error') %}
@@ -9,34 +9,44 @@
 
     <h1>Inscription à INTO<span>PDF</span></h1>
 
+    <div class="generate_pdf">
+
     {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-    {{ form_row(registrationForm.email, {
-        label: 'Email',
-        attr: {
-            placeholder: 'johndoe@email.com'
-        }
-    }) }}
-    {{ form_row(registrationForm.plainPassword, {
-        label: 'Mot de Passe'
-    }) }}
-    {{ form_row(registrationForm.firstName, {
-        label: 'Prénom',
-        attr: {
-            placeholder: 'John'
-        }
-    }) }}
-    {{ form_row(registrationForm.lastName, {
-        label: 'Nom',
-        attr: {
-            placeholder: 'Doe'
-        }
-    }) }}
-    {{ form_row(registrationForm.agreeTerms, {
-        label: 'J\'ai lu et j\'accepte les conditions générales d\'utilisation'
-    }) }}
-
-    <button type="submit" class="btn btn-primary">S'inscrire</button>
+    {{ form_start(registrationForm, {'attr': {'class': 'form-url form-register', 'action': ''}}) }}
+        {{ form_row(registrationForm.firstName, {
+            label: false,
+            attr: {
+                placeholder: 'Prenom'
+            }
+        }) }}
+        {{ form_row(registrationForm.lastName, {
+            label: false,
+            attr: {
+                placeholder: 'Nom'
+            }
+        }) }}
+        {{ form_row(registrationForm.email, {
+            label: false,
+            attr: {
+                placeholder: 'E-mail'
+            }
+        }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: false,
+            attr: {
+                placeholder: 'Mot de Passe'
+            }
+        }) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            attr: {
+                class: 'form-check-input'
+            },
+            label: 'J\'ai lu et j\'accepte les conditions générales d\'utilisation'
+        }) }}
+        <div>
+            <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </div>
     {{ form_end(registrationForm) }}
+    </div>
 {% endblock %}
