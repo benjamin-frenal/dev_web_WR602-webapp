@@ -3,10 +3,25 @@
 {% block title %}INTOPDF - Générer un PDF{% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('error') %}
+        <div class="alert">
+            <div class="alert-popup">
+                <div class="alert-header">
+                    <h2>Limite de pdf atteinte</h2>
+                </div>
+                <div class="alert-body">
+                    {{ message|raw }}
+                </div>
+                <div class="alert-footer">
+                    <a href="{{ path('app_generate_pdf') }}" class="alert-close">Fermer</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 
     <div class="generate_pdf">
         <h1><span>Convertissez</span> vos pages en <span>PDF</span> grâce à notre outil simple en ligne</h1>
-        <div class="chapo">Nous avons converti <span id="counter">40 000</span> <span>URL</span> en <span>PDF</span> pour une taille totale de <span id="countermo">345,78</span> <span>Mo</span></div>
+        <div class="chapo">Nous avons converti <span id="counter">43 926</span> <span>URL</span> en <span>PDF</span> pour une taille totale de <span id="countermo">382</span> <span>Mo</span></div>
 
         <!--
         <div class="change">
@@ -25,7 +40,7 @@
         -->
 
 
-        {{ form_start(form, {'attr': {'class': 'form-url', 'action': ''}}) }}
+        {{ form_start(form, {'attr': {'class': 'form-url', 'action': '', 'id': 'generate-pdf-form'}}) }}
 
         {{ form_errors(form) }}
 

@@ -22,12 +22,22 @@ class GeneratePdfController extends AbstractController
     #[Route('/generate/pdf', name: 'app_generate_pdf')]
     public function generatePdf(Request $request, EntityManagerInterface $entityManager): Response
     {
+        $user = $this->getUser();
+        $subscription = $user->getSubscription();
+        $pdfLimit = $subscription ? $subscription->getPdfLimit() : 10; // 10 par défaut si aucune souscription
+        $currentPdfCount = count($user->getPdfs());
+
         // Create a form
         $form = $this->createForm(GeneratePdfForm::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // get the value of the form
+            // Vérifier si l'utilisateur a atteint sa limite de PDF
+            if ($currentPdfCount >= $pdfLimit) {
+                $this->addFlash('error', 'Vous avez atteint votre limite de PDF. <br> Veuillez passer à un <a href="' . $this->generateUrl('app_subscription') . '">abonnement supérieur</a> pour continuer.');
+                return $this->redirectToRoute('app_generate_pdf');
+            }
+
             $pdfName = $form->getData()['pdfName'];
             $url = $form->getData()['url'];
 
@@ -72,7 +82,6 @@ class GeneratePdfController extends AbstractController
             return $this->redirectToRoute('app_show_pdf', ['id' => $pdf->getId()]);
         }
 
-        // Afficher le formulaire
         return $this->render('generate_pdf/index.html.twig', [
             'form' => $form->createView(),
         ]);

@@ -29,8 +29,13 @@ class HistoryController extends AbstractController
             return $b->getCreatedAt() <=> $a->getCreatedAt();
         });
 
+        // Récupérer la limite de PDF en fonction de l'abonnement de l'utilisateur
+        $subscription = $user->getSubscription();
+        $pdfLimit = $subscription ? $subscription->getPdfLimit() : 10; // 10 par défaut si aucune souscription
+
         return $this->render('history/index.html.twig', [
             'pdfs' => $pdfs,
+            'pdfLimit' => $pdfLimit,
         ]);
     }
 }
