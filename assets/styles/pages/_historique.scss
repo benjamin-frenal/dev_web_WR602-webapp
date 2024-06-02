@@ -1,6 +1,14 @@
 .historique{
-  table{
+  .numbpdf{
     margin-top: 40px;
+    text-align: center;
+    a{
+      color: var(--violet);
+      text-decoration: underline;
+    }
+  }
+  table{
+    margin-bottom: 40px;
     width: 100%;
     background: var(--rose);
     border: 1px solid var(--violet);
