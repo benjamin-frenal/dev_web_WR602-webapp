@@ -16,6 +16,7 @@ html {
 }
 
 html, body {
+  position: relative;
   overflow-x: hidden;
   scroll-behavior: smooth;
   margin: 0;
@@ -288,8 +289,9 @@ h1 {
 }
 
 .alert {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -317,6 +319,9 @@ h1 {
   font-size: 16px;
   font-weight: 400;
   color: var(--noir);
+}
+.alert-popup .alert-body a {
+  color: var(--violet);
 }
 .alert-popup .alert-footer {
   text-align: center;
@@ -484,6 +489,9 @@ h1 {
 .historique .numbpdf a {
   color: var(--violet);
   text-decoration: underline;
+}
+.historique .numbpdf span {
+  color: #d90e0e;
 }
 .historique table {
   margin-bottom: 40px;
