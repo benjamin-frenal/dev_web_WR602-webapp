@@ -3,6 +3,22 @@
 {% block title %}INTOPDF - Abonnement{% endblock %}
 
 {% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert">
+            <div class="alert-popup">
+                <div class="alert-header">
+                    <h2>Changement d'abonnement</h2>
+                </div>
+                <div class="alert-body">
+                    {{ message|raw }}
+                </div>
+                <div class="alert-footer">
+                    <a href="{{ path('app_subscription') }}" class="alert-close">Fermer</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
     <h1>Choisissez votre <span>Abonnement</span></h1>
     <div class="container">
         <div class="switcher">
@@ -63,6 +79,20 @@
                     select.style.transform = 'translateX(0)';
                 }
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const closeButton = document.querySelector(".alert-close");
+
+            if (closeButton) {
+                closeButton.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const alertPopup = document.querySelector(".alert");
+                    if (alertPopup) {
+                        alertPopup.style.display = "none";
+                    }
+                });
+            }
         });
     </script>
 {% endblock %}

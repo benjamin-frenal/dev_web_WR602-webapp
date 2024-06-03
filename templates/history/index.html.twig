@@ -8,7 +8,7 @@
             <h1><span>Historique</span> de vos pages converti en <span>PDF</span></h1>
 
             {% if pdfs|length >= pdfLimit %}
-            <p class="numbpdf">Vous avez atteint la limite de {{ pdfLimit }} PDFs dans votre historique. <a href="{{ path('app_subscription') }}">Voir les autres abonnements</a></p>
+                <p class="numbpdf"><span>Vous avez atteint la limite de {{ pdfLimit }} PDFs dans votre historique. </span><a href="{{ path('app_subscription') }}">Voir les autres abonnements</a></p>
             {% else %}
             <p class="numbpdf">Vous avez actuellement {{ pdfs|length }} PDFs dans votre historique, vous pouvez en avoir jusqu'à {{ pdfLimit }}.</p>
             {% endif %}

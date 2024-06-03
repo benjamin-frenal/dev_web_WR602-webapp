@@ -55,6 +55,9 @@ class SubscriptionController extends AbstractController
         $user->setSubscription($subscription);
         $entityManager->flush();
 
+        // Ajouter une alerte flash pour confirmer le changement d'abonnement
+        $this->addFlash('success', 'Votre abonnement a été changé avec succès.');
+
         return $this->redirectToRoute('app_subscription');
     }
 }
