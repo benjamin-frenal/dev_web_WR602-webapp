@@ -3,8 +3,21 @@
 {% block title %}INTOPDF - Connexion{% endblock %}
 
 {% block body %}
+
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="alert">
+            <div class="alert-popup">
+                <div class="alert-header">
+                    <h2>Utilisateur inconnu</h2>
+                </div>
+                <div class="alert-body">
+                    Cet utilisateur n'existe pas. Veuillez vérifier vos identifiants.
+                </div>
+                <div class="alert-footer">
+                    <a href="{{ path('app_generate_pdf') }}" class="alert-close">Fermer</a>
+                </div>
+            </div>
+        </div>
     {% endif %}
 
         <h1>Connexion à INTO<span>PDF</span></h1>

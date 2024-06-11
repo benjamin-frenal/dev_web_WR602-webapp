@@ -121,6 +121,12 @@ span {
     color: var(--violet);
   }
 }
+.btn-lauch {
+  margin: 40px auto;
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+}
 
 .bubbles {
   pointer-events: none;
@@ -154,10 +160,112 @@ h1 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+  margin: 80px 0 0;
+  font-size: 36px;
+  font-weight: 500;
+}
+
 .chapo {
   margin-top: 30px;
   font-size: 24px;
   text-align: center;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  margin-top: 150px;
+}
+
+.grid-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 0;
+  grid-gap: 20px;
+  margin-top: 30px;
+  justify-content: center;
+}
+.grid-icons li {
+  list-style: none;
+  text-align: center;
+  background: var(--rose);
+  border: 1px solid var(--violet);
+  padding: 30px 40px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: var(--smalltransition);
+  cursor: pointer;
+}
+@media (min-width: 991px) {
+  .grid-icons li:hover, .grid-icons li:focus, .grid-icons li:focus-visible, .grid-icons li.active {
+    background: var(--violet);
+    color: var(--rose);
+  }
+  .grid-icons li:hover strong svg path, .grid-icons li:focus strong svg path, .grid-icons li:focus-visible strong svg path, .grid-icons li.active strong svg path {
+    fill: var(--rose);
+  }
+}
+.grid-icons li strong {
+  display: flex;
+  justify-content: center;
+  column-gap: 16px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.grid-icons li strong svg {
+  width: 32px;
+  height: 32px;
+}
+.grid-icons li strong svg path {
+  transition: var(--smalltransition);
+  fill: var(--violet);
+}
+
+.flex-exemple {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  align-items: center;
+  column-gap: 80px;
+  margin-top: 50px;
+}
+.flex-exemple ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  grid-area: 1/1/2/3;
+}
+.flex-exemple ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.flex-exemple ul li strong {
+  display: block;
+  font-weight: 500;
+  font-size: 22px;
+}
+.flex-exemple-img {
+  display: flex;
+  align-items: center;
+  grid-area: 1/3/2/5;
+  background: var(--rose);
+  height: 100%;
+}
+.flex-exemple-img img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.rea-texte {
+  padding: 0 50px;
+  text-align: center;
+  font-size: 18px;
 }
 
 .generate_pdf {
