@@ -1,7 +1,132 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}INTOPDF - Welcome !{% endblock %}
+{% block title %}INTOPDF - Bienvenue !{% endblock %}
 
 {% block body %}
-    <h1>Accueil</h1>
+    <div class="home">
+        <h1>INTO<span>PDF</span> - Convertisseur de pages web en <span>PDF</span></h1>
+        <div class="container">
+            <div class="chapo">Transformez facilement vos pages web préférées en PDF en quelques clics.</div>
+
+            <div>
+                <h2>Pourquoi <span>nous</span> choisir ?</h2>
+                <ul class="grid-icons">
+                    <li>
+                        <strong>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M256 32a224 224 0 1 1 0 448 224 224 0 1 1 0-448zm0 480A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM280 96a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm96 0c0-18.6-7.9-35.3-20.5-47l82.6-153.4c4.2-7.8 1.3-17.5-6.5-21.7s-17.5-1.3-21.7 6.5L271.3 289.8c-4.9-1.2-10-1.8-15.3-1.8c-35.3 0-64 28.7-64 64s28.7 64 64 64s64-28.7 64-64zM168 144a24 24 0 1 0 -48 0 24 24 0 1 0 48 0zM96 280a24 24 0 1 0 0-48 24 24 0 1 0 0 48zm344-24a24 24 0 1 0 -48 0 24 24 0 1 0 48 0z"/>
+                        </svg>Rapidité et Simplicité</strong>
+                        Notre plateforme est facile à utiliser. En quelques clics, vous pouvez convertir vos pages web en
+                        PDF sans compétences techniques.
+                    </li>
+
+                    <li>
+                        <strong>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M352 16V80h64c8.8 0 16 7.2 16 16s-7.2 16-16 16H352v64c0 8.8-7.2 16-16 16s-16-7.2-16-16V112H256c-8.8 0-16-7.2-16-16s7.2-16 16-16h64V16c0-8.8 7.2-16 16-16s16 7.2 16 16zM152.8 265.5c-4.7 9.5-13.7 16-24.1 17.5L41.2 295.8l63.4 61.9c7.5 7.3 11 17.9 9.2 28.3l-15 87.3L177 432.1c9.3-4.9 20.5-4.9 29.8 0L285 473.3l-15-87.3c-1.8-10.4 1.7-20.9 9.2-28.3l63.4-61.9-87.5-12.7c-10.4-1.5-19.4-8.1-24.1-17.5l-39.1-79.4-39.1 79.4zm17.6-108.1c8.8-17.9 34.3-17.9 43.1 0l46.3 94 103.5 15.1c19.7 2.9 27.5 27 13.3 40.9l-74.9 73.2 17.7 103.3c3.4 19.6-17.2 34.6-34.8 25.3l-92.6-48.8L99.3 509.2c-17.6 9.3-38.2-5.7-34.8-25.3L82.2 380.6 7.2 307.4C-7 293.5 .9 269.3 20.5 266.5l103.5-15.1 46.3-94zM448 160c8.8 0 16 7.2 16 16v32h32c8.8 0 16 7.2 16 16s-7.2 16-16 16H464v32c0 8.8-7.2 16-16 16s-16-7.2-16-16V240H400c-8.8 0-16-7.2-16-16s7.2-16 16-16h32V176c0-8.8 7.2-16 16-16z"/>
+                        </svg>Qualité Garantie</strong>
+                        Chaque PDF conserve la mise en page et le contenu d'origine, idéal pour les présentations,
+                        rapports, ou articles favoris.
+                    </li>
+
+                    <li>
+                        <strong>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M128 128v64H320V128c0-53-43-96-96-96s-96 43-96 96zM96 192V128C96 57.3 153.3 0 224 0s128 57.3 128 128v64h16c44.2 0 80 35.8 80 80V432c0 44.2-35.8 80-80 80H80c-44.2 0-80-35.8-80-80V272c0-44.2 35.8-80 80-80H96zM32 272V432c0 26.5 21.5 48 48 48H368c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48H80c-26.5 0-48 21.5-48 48z"/>
+                        </svg>Sécurité et Confidentialité</strong>
+                        Vos données sont protégées. Les conversions sont sécurisées et nous ne conservons aucune
+                        information personnelle après le processus.
+                    </li>
+
+                    <li>
+                        <strong>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                            <path d="M213.3 128H416V64L213.3 64l-32 32 32 32zM190.6 41.4c6-6 14.1-9.4 22.6-9.4H416c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H213.3c-8.5 0-16.6-3.4-22.6-9.4l-43.3-43.3c-6.2-6.2-6.2-16.4 0-22.6l43.3-43.3zM64 128a32 32 0 1 1 0-64 32 32 0 1 1 0 64zm0 160a32 32 0 1 1 0-64 32 32 0 1 1 0 64zM32 416a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm181.3 32H416V384H213.3l-32 32 32 32zm-22.6-86.6c6-6 14.1-9.4 22.6-9.4H416c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H213.3c-8.5 0-16.6-3.4-22.6-9.4l-43.3-43.3c-6.2-6.2-6.2-16.4 0-22.6l43.3-43.3zM181.3 256l32 32H480V224l-266.7 0-32 32zm-33.9-11.3l43.3-43.3c6-6 14.1-9.4 22.6-9.4H480c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H213.3c-8.5 0-16.6-3.4-22.6-9.4l-43.3-43.3c-6.2-6.2-6.2-16.4 0-22.6z"/>
+                        </svg>Historique de Conversions</strong>
+                        Accédez facilement à toutes vos conversions passées avec notre fonction d'historique,
+                        simplifiant la gestion de vos fichiers.
+                    </li>
+
+                    <li>
+                        <strong>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path d="M34.3 224c-1.5 10.5-2.3 21.1-2.3 32s.8 21.5 2.3 32H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H41.3C68.8 412.5 154.5 480 256 480h49c8.8 0 16-7.2 16-16s-7.2-16-16-16H256c-83.6 0-154.7-53.4-181.1-128H272c8.8 0 16-7.2 16-16s-7.2-16-16-16H66.7c-1.7-10.4-2.7-21.1-2.7-32s.9-21.6 2.7-32H272c8.8 0 16-7.2 16-16s-7.2-16-16-16H74.9C101.3 117.4 172.4 64 256 64h49c8.8 0 16-7.2 16-16s-7.2-16-16-16H256C154.5 32 68.8 99.5 41.3 192H16c-8.8 0-16 7.2-16 16s7.2 16 16 16H34.3z"/>
+                            </svg>
+                            Flexible et Abordable
+                        </strong>
+                        Nous proposons des abonnements adaptés à vos besoins et votre budget, que vous ayez des
+                        conversions occasionnelles ou fréquentes.
+                    </li>
+
+                    <li>
+                        <strong>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <!--! Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path d="M256 32a224 224 0 1 1 0 448 224 224 0 1 1 0-448zm0 480A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM208 352c-8.8 0-16 7.2-16 16s7.2 16 16 16h96c8.8 0 16-7.2 16-16s-7.2-16-16-16H272V240c0-8.8-7.2-16-16-16H216c-8.8 0-16 7.2-16 16s7.2 16 16 16h24v96H208zm48-168a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/>
+                            </svg>
+                            Support Personnalisé
+                        </strong>
+                        Notre équipe de support est toujours disponible pour vous aider avec des questions techniques ou
+                        des demandes spécifiques.
+                    </li>
+                </ul>
+                <h2>Comment ça <span>marche</span> ?</h2>
+                <div class="flex-exemple">
+                    <ul>
+                        <li><strong>1- <span>Entrez</span> l'URL</strong>
+                            Commencez par copier et coller l'URL de la page web que vous souhaitez convertir dans notre
+                            champ de saisie facile à utiliser.
+                        </li>
+
+                        <li><strong>2- <span>Choisissez</span> un nom de fichier</strong>
+                            Donnez un nom à votre fichier PDF pour le retrouver facilement plus tard. Cela peut être le
+                            titre de l'article, le nom du site web, ou tout autre nom qui vous convient.
+                        </li>
+
+                        <li><strong>3- <span>Cliquez</span> sur "Convertir en PDF"</strong>
+                            En un seul clic, notre outil puissant commence à convertir votre page web en un document PDF de
+                            haute qualité. En quelques secondes, votre fichier est prêt à être téléchargé et utilisé comme
+                            bon vous semble.
+                        </li>
+                    </ul>
+                    <div class="flex-exemple-img">
+                        <img src="/assets/images/exemple.webp" alt="">
+                    </div>
+                </div>
+
+                <h2>Nos <span>Réalisations</span></h2>
+                <p class="rea-texte">
+                    Depuis notre lancement, nous avons aidé des milliers d'utilisateurs à transformer leurs pages web en
+                    PDF. Jusqu'à présent, nous avons converti <span>43 926 URL</span> en PDF, représentant une taille totale de <span>382
+                    Mo</span>. Nos utilisateurs apprécient la fiabilité et la rapidité de notre service, et nous travaillons
+                    constamment à améliorer notre plateforme pour répondre à vos besoins. Rejoignez notre communauté de
+                    utilisateurs satisfaits et découvrez à quel point il est simple de convertir vos pages web préférées
+                    en PDF.
+                </p>
+
+                <h2>Découvrez nos <span>Abonnements</span></h2>
+                <p class="rea-texte">
+                    Nous comprenons que chaque utilisateur a des <span>besoins différents</span>, c'est pourquoi nous offrons une
+                    gamme de plans d'abonnement <span>flexibles</span> et <span>abordables</span>. Choisissez celui qui vous convient le mieux et
+                    profitez de fonctionnalités supplémentaires et d'un support client dédié.
+                </p>
+
+                <p class="rea-texte">En optant pour un <span>abonnement annuel</span>, vous pouvez économiser jusqu'à <span>25 %</span> sur le coût mensuel.</p>
+
+                <h2>Commencez maintenant !</h2>
+                <p class="rea-texte">
+                    Ne perdez plus de temps à chercher des moyens complexes de <span>convertir vos pages web en PDF.</span> Cliquez
+                    sur <a href="{{ path('app_generate_pdf') }}" target="_self"><span>Générer PDF</span></a> pour commencer à convertir vos pages web dès maintenant. Avec INTO<span>PDF</span>, le
+                    processus est simple, rapide et fiable. Rejoignez notre communauté de utilisateurs satisfaits et
+                    découvrez la commodité de convertir vos pages web en documents PDF de haute qualité.
+                </p>
+                <a href="{{ path('app_generate_pdf') }}" target="_self" class="btn btn-primary btn-lauch">Commencer dés maintenant !</a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

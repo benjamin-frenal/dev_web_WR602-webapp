@@ -19,7 +19,6 @@ class AppFixtures extends Fixture
         $subscription1->setPdfLimit(10);
         $subscription1->setPriceMonth(9.99);
         $subscription1->setPriceYear(89.99);
-        $subscription1->setMedia('assets/essential.png');
 
         $manager->persist($subscription1);
 
@@ -29,7 +28,6 @@ class AppFixtures extends Fixture
         $subscription2->setPdfLimit(30);
         $subscription2->setPriceMonth(14.99);
         $subscription2->setPriceYear(134.99);
-        $subscription2->setMedia('assets/advanced.png');
 
         $manager->persist($subscription2);
 
@@ -39,7 +37,6 @@ class AppFixtures extends Fixture
         $subscription3->setPdfLimit(100);
         $subscription3->setPriceMonth(29.99);
         $subscription3->setPriceYear(269.99);
-        $subscription3->setMedia('assets/expert.png');
 
         $manager->persist($subscription3);
 

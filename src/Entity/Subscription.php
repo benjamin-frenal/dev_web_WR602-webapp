@@ -30,9 +30,6 @@ class Subscription
     #[ORM\Column]
     private ?float $priceyear = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $media = null;
-
     /**
      * @var Collection<int, User>
      */
@@ -105,18 +102,6 @@ class Subscription
     public function setPriceYear(float $priceyear): static
     {
         $this->priceyear = $priceyear;
-
-        return $this;
-    }
-
-    public function getMedia(): ?string
-    {
-        return $this->media;
-    }
-
-    public function setMedia(string $media): static
-    {
-        $this->media = $media;
 
         return $this;
     }

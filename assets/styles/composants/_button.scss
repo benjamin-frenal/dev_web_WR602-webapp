@@ -21,4 +21,11 @@
       color: var(--violet);
     }
   }
+
+  &-lauch{
+    margin: 40px auto;
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+  }
 }
