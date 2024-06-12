@@ -19,7 +19,7 @@
         </nav>
         {% if app.user %}
             <div class="header--account">
-                {# app.user.userIdentifier #}
+                <div id="user-info">Vous êtes connecté en tant que {{ app.user.userIdentifier }}</div>
                 <a class="btn btn-primary" href="{{ path('app_logout') }}">Se déconnecter</a>
             </div>
         {% else %}
