@@ -17,25 +17,29 @@
         {{ form_row(registrationForm.firstName, {
             label: false,
             attr: {
-                placeholder: 'Prenom'
+                placeholder: 'Prenom',
+                id: 'registration_form_firstName'
             }
         }) }}
         {{ form_row(registrationForm.lastName, {
             label: false,
             attr: {
-                placeholder: 'Nom'
+                placeholder: 'Nom',
+                id: 'registration_form_lastName'
             }
         }) }}
         {{ form_row(registrationForm.email, {
             label: false,
             attr: {
-                placeholder: 'E-mail'
+                placeholder: 'E-mail',
+                id: 'registration_form_email'
             }
         }) }}
         {{ form_row(registrationForm.plainPassword, {
             label: false,
             attr: {
-                placeholder: 'Mot de Passe'
+                placeholder: 'Mot de Passe',
+                id: 'registration_form_plainPassword'
             }
         }) }}
         {{ form_row(registrationForm.agreeTerms, {
@@ -49,4 +53,16 @@
         </div>
     {{ form_end(registrationForm) }}
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.generate_pdf').addEventListener('click', function() {
+                var targetElement = document.querySelector('.form-register > div ul');
+                if (targetElement) {
+                    targetElement.style.display = 'none';
+                } else {
+                    console.error('L\'élément .form-register > div ul n\'a pas été trouvé.');
+                }
+            });
+        });
+    </script>
 {% endblock %}
