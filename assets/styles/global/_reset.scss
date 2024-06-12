@@ -1,0 +1,53 @@
+@use "mixins" as *;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+html{
+  background: var(--rose);
+}
+
+html, body {
+  position: relative;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  color: var(--noir);
+  font-size: 16px;
+}
+
+#user-info{
+  display: none;
+  font-size: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(calc(100vw - 24px), 1360px);
+  margin: 0 auto;
+
+  &--flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 70px;
+  }
+}
+
+span{
+  color: var(--violet);
+}
+
+.table-responsive{
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-spacing: 0;
+}

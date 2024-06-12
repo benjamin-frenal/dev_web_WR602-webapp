@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GeneratePdfController!{% endblock %}
+
+{% block body %}
+    <div class="view-pdf">
+        <div class="container">
+            <div class="view-pdf_infos">
+                <h1>{{ pdf.title }}</h1>
+                <p>Crée le {{ pdf.createdAt|date('d/m/Y à H:i:s') }}</p>
+                <a href="{{ asset(pdf.path) }}" download class="btn btn-primary">Télécharger le PDF</a>
+            </div>
+            <embed src="{{ asset(pdf.path) }}" type="application/pdf"/>
+        </div>
+    </div>
+{% endblock %}

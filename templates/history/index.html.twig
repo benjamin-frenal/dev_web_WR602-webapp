@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}INTOPDF - Historique{% endblock %}
+
+{% block body %}
+    <div class="historique">
+        <div class="container">
+            <h1><span>Historique</span> de vos pages converti en <span>PDF</span></h1>
+
+            {% if pdfs|length >= pdfLimit %}
+                <p class="numbpdf"><span>Vous avez atteint la limite de {{ pdfLimit }} PDFs dans votre historique. </span><a href="{{ path('app_subscription') }}">Voir les autres abonnements</a></p>
+            {% else %}
+            <p class="numbpdf">Vous avez actuellement {{ pdfs|length }} PDFs dans votre historique, vous pouvez en avoir jusqu'à {{ pdfLimit }}.</p>
+            {% endif %}
+
+            {% if pdfs|length > 0 %}
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Lien</th>
+                            <th>Date de création</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for pdf in pdfs %}
+                            <tr>
+                                <td>{{ pdf.title }}</td>
+                                <td><a href="{{ path('app_show_pdf', {id: pdf.id}) }}">Afficher le PDF</a></td>
+                                <td>{{ pdf.createdAt|date('d/m/Y à H:i:s') }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="p404">Nous n'avons pas trouvé de PDF dans votre historique.</div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

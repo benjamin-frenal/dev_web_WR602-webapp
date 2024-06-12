@@ -1,0 +1,56 @@
+.historique{
+  .numbpdf{
+    margin-top: 40px;
+    text-align: center;
+    a{
+      color: var(--violet);
+      text-decoration: underline;
+    }
+    span{
+      color: #d90e0e;
+    }
+  }
+  table{
+    margin-bottom: 40px;
+    width: 100%;
+    background: var(--rose);
+    border: 1px solid var(--violet);
+    border-collapse: collapse;
+    thead{
+      th{
+        background: var(--violet);
+        color: var(--blanc);
+        padding: 10px 20px;
+        font-weight: 500;
+        border-bottom: 1px solid var(--violet);
+        &:first-child, &:nth-child(2){
+          border-right: 1px solid var(--blanc);
+        }
+      }
+    }
+    tbody{
+      tr{
+        border-top: 1px solid var(--violet);
+        td{
+          text-align: center;
+          padding: 10px 20px;
+          &:nth-child(2){
+            color: var(--violet);
+            text-decoration: underline;
+          }
+          &:nth-child(2), &:nth-child(3){
+            text-wrap: nowrap;
+          }
+        }
+        >:first-child, >:nth-child(2){
+          border-right: 1px solid var(--violet);
+        }
+      }
+    }
+  }
+}
+.p404{
+  margin-top: 100px;
+  font-size: 18px;
+  text-align: center;
+}

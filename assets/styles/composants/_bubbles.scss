@@ -1,0 +1,24 @@
+.bubbles{
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  .bubble-1{
+    position: absolute;
+    left: 80px;
+    bottom: -80px;
+    width: 580px;
+    height: 580px;
+    border-radius: 580px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(112, 0, 255, 0.10) 0%, rgba(112, 0, 255, 0.10) 100%);
+  }
+  .bubble-2{
+    position: absolute;
+    right: 160px;
+    top: 40px;
+    width: 320px;
+    height: 320px;
+    border-radius: 320px;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(112, 0, 255, 0.10) 0%, rgba(112, 0, 255, 0.10) 100%);
+  }
+}

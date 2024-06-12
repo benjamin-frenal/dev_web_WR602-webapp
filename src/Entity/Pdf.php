@@ -19,8 +19,11 @@ class Pdf
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
-    #[ORM\ManyToOne(inversedBy: 'pdf')]
-    private ?User $userRelation = null;
+    #[ORM\Column(length: 255)]
+    private ?string $path = null;
+
+    #[ORM\ManyToOne(inversedBy: 'pdfs')]
+    private ?User $owner = null;
 
     public function getId(): ?int
     {
@@ -51,14 +54,26 @@ class Pdf
         return $this;
     }
 
-    public function getUserRelation(): ?User
+    public function getPath(): ?string
     {
-        return $this->userRelation;
+        return $this->path;
     }
 
-    public function setUserRelation(?User $userRelation): static
+    public function setPath(string $path): static
     {
-        $this->userRelation = $userRelation;
+        $this->path = $path;
+
+        return $this;
+    }
+
+    public function getOwner(): ?User
+    {
+        return $this->owner;
+    }
+
+    public function setOwner(?User $owner): static
+    {
+        $this->owner = $owner;
 
         return $this;
     }

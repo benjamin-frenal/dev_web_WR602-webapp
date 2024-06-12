@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}INTOPDF - Inscription{% endblock %}
+
+{% block body %}
+    {% for flash_error in app.flashes('verify_email_error') %}
+        <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+    {% endfor %}
+
+    <h1>Inscription à INTO<span>PDF</span></h1>
+
+    <div class="generate_pdf">
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm, {'attr': {'class': 'form-url form-register', 'action': ''}}) }}
+        {{ form_row(registrationForm.firstName, {
+            label: false,
+            attr: {
+                placeholder: 'Prenom',
+                id: 'registration_form_firstName'
+            }
+        }) }}
+        {{ form_row(registrationForm.lastName, {
+            label: false,
+            attr: {
+                placeholder: 'Nom',
+                id: 'registration_form_lastName'
+            }
+        }) }}
+        {{ form_row(registrationForm.email, {
+            label: false,
+            attr: {
+                placeholder: 'E-mail',
+                id: 'registration_form_email'
+            }
+        }) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: false,
+            attr: {
+                placeholder: 'Mot de Passe',
+                id: 'registration_form_plainPassword'
+            }
+        }) }}
+        {{ form_row(registrationForm.agreeTerms, {
+            attr: {
+                class: 'form-check-input'
+            },
+            label: 'J\'ai lu et j\'accepte les conditions générales d\'utilisation'
+        }) }}
+        <div>
+            <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </div>
+    {{ form_end(registrationForm) }}
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.generate_pdf').addEventListener('click', function() {
+                var targetElement = document.querySelector('.form-register > div ul');
+                if (targetElement) {
+                    targetElement.style.display = 'none';
+                } else {
+                    console.error('L\'élément .form-register > div ul n\'a pas été trouvé.');
+                }
+            });
+        });
+    </script>
+{% endblock %}

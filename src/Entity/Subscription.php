@@ -25,10 +25,10 @@ class Subscription
     private ?int $pdf_limit = null;
 
     #[ORM\Column]
-    private ?int $price = null;
+    private ?float $pricemonth = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $media = null;
+    #[ORM\Column]
+    private ?float $priceyear = null;
 
     /**
      * @var Collection<int, User>
@@ -82,26 +82,26 @@ class Subscription
         return $this;
     }
 
-    public function getPrice(): ?int
+    public function getPriceMonth(): ?float
     {
-        return $this->price;
+        return $this->pricemonth;
     }
 
-    public function setPrice(int $price): static
+    public function setPriceMonth(float $pricemonth): static
     {
-        $this->price = $price;
+        $this->pricemonth = $pricemonth;
 
         return $this;
     }
 
-    public function getMedia(): ?string
+    public function getPriceYear(): ?float
     {
-        return $this->media;
+        return $this->priceyear;
     }
 
-    public function setMedia(string $media): static
+    public function setPriceYear(float $priceyear): static
     {
-        $this->media = $media;
+        $this->priceyear = $priceyear;
 
         return $this;
     }

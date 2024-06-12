@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}INTOPDF - Abonnement{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('success') %}
+        <div class="alert">
+            <div class="alert-popup">
+                <div class="alert-header">
+                    <h2>Changement d'abonnement</h2>
+                </div>
+                <div class="alert-body">
+                    {{ message|raw }}
+                </div>
+                <div class="alert-footer">
+                    <a href="{{ path('app_subscription') }}" class="alert-close">Fermer</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <h1>Choisissez votre <span>Abonnement</span></h1>
+    <div class="container">
+        <div class="switcher">
+            <div class="switcher-btn active">Mensuel</div>
+            <div class="switcher-btn">Annuel</div>
+            <div class="switcher-select"></div>
+        </div>
+        <div class="economies">
+            Économisez jusqu'à 25% avec les abonnements annuels
+        </div>
+        <div class="offres">
+            {% if subscriptions is not empty %}
+                {% for subscription in subscriptions %}
+                    <div class="offres-bloc">
+                        <div class="offres-bloc__titre">{{ subscription.title }}</div>
+                        <div class="offres-bloc__prix" data-mensuel="{{ subscription.pricemonth }}" data-annuel="{{ subscription.priceyear }}">
+                            {{ subscription.pricemonth }} €<span>/ mois <br>résiliation à tout moment</span>
+                        </div>
+                        <ul class="offres-bloc__desc">
+                            {{ subscription.description|raw }}
+                        </ul>
+                        <div class="offres-bloc__btn">
+                            {% if user.subscription and user.subscription.id == subscription.id %}
+                                <span>Abonnement actif</span>
+                            {% else %}
+                                <form action="{{ path('app_change_subscription', {'id': subscription.id}) }}" method="post">
+                                    <button type="submit">Souscrire</button>
+                                </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>Aucun abonnement disponible.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.switcher-btn').forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.switcher-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const select = document.querySelector('.switcher-select');
+                const prix = document.querySelectorAll('.offres-bloc__prix');
+                const mode = index === 1 ? 'annuel' : 'mensuel';
+
+                prix.forEach(p => {
+                    const prixMensuel = p.getAttribute('data-mensuel');
+                    const prixAnnuel = p.getAttribute('data-annuel');
+                    p.innerHTML = mode === 'annuel' ? prixAnnuel + ' €<span>/ ans <br>résiliation à tout moment</span>' : prixMensuel + ' €<span>/ mois <br>résiliation à tout moment</span>';
+                });
+
+                if (index === 1) {
+                    select.style.transform = 'translateX(114px)';
+                } else {
+                    select.style.transform = 'translateX(0)';
+                }
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const closeButton = document.querySelector(".alert-close");
+
+            if (closeButton) {
+                closeButton.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const alertPopup = document.querySelector(".alert");
+                    if (alertPopup) {
+                        alertPopup.style.display = "none";
+                    }
+                });
+            }
+        });
+    </script>
+{% endblock %}
