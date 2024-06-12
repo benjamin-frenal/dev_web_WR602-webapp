@@ -5,12 +5,21 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\Subscription;
+use App\Entity\User;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class AppFixtures extends Fixture
 {
+    private UserPasswordHasherInterface $passwordHasher;
+
+    public function __construct(UserPasswordHasherInterface $passwordHasher)
+    {
+        $this->passwordHasher = $passwordHasher;
+    }
+
     public function load(ObjectManager $manager): void
     {
-
+        // Création des abonnements
         $subscription1 = new Subscription();
         $subscription1->setTitle('Basique');
         $subscription1->setDescription('<li>10 PDFs par mois</li><li>Accès à l\'historique des conversions</li><li>Assistance par email</li>');
@@ -38,6 +47,20 @@ class AppFixtures extends Fixture
 
         $manager->persist($subscription3);
 
+        $user = new User();
+        $user->setEmail('ben.frenal@icloud.com');
+        $user->setPassword($this->passwordHasher->hashPassword($user, '123456'));
+        $user->setFirstname('Benjamin');
+        $user->setLastname('Frenal');
+        $user->setRoles(['ROLE_USER']);
+        $user->setCreatedAt(new \DateTimeImmutable());
+        $user->setUpdatedAt(new \DateTimeImmutable());
+        $user->setSubscription($subscription1);
+        $subscriptionEndDate = new \DateTimeImmutable();
+        $subscriptionEndDate = $subscriptionEndDate->modify('+1 month');
+        $user->setSubscriptionEndAt($subscriptionEndDate);
+
+        $manager->persist($user);
 
         $manager->flush();
     }
